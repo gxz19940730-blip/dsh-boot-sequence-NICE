@@ -1,0 +1,4 @@
+﻿dist/
+media/*
+!media/README.md
+*.log

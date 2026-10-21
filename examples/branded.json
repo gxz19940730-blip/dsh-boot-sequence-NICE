@@ -1,0 +1,10 @@
+{
+  "fadeMs": 600,
+  "minShowMs": 1200,
+  "brand": { "show": true, "text": "DEEPSEEK HARNESS" },
+  "hint": "Click or press Esc to skip",
+  "phases": [
+    { "type": "blank", "duration": 2400 }
+  ],
+  "ending": { "blackoutMs": 450, "holdMs": 250, "revealMs": 900 }
+}

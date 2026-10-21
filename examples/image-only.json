@@ -1,0 +1,8 @@
+{
+  "fadeMs": 700,
+  "minShowMs": 1200,
+  "phases": [
+    { "type": "image", "src": "keyart.jpg", "fit": "cover", "duration": 2400 }
+  ],
+  "ending": { "blackoutMs": 450, "holdMs": 250, "revealMs": 900 }
+}

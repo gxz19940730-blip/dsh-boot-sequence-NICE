@@ -1,0 +1,9 @@
+{
+  "fadeMs": 600,
+  "minShowMs": 1200,
+  "phases": [
+    { "type": "video", "src": "intro.mp4", "fit": "cover", "duration": 12000 }
+  ],
+  "ending": { "blackoutMs": 450, "holdMs": 250, "revealMs": 900 },
+  "hint": "Click or press Esc to skip"
+}

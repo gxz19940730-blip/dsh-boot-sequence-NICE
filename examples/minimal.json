@@ -1,0 +1,8 @@
+{
+  "fadeMs": 500,
+  "minShowMs": 900,
+  "phases": [
+    { "type": "blank", "duration": 1400 }
+  ],
+  "ending": { "blackoutMs": 350, "holdMs": 150, "revealMs": 700 }
+}

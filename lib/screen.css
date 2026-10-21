@@ -1,0 +1,146 @@
+/* dsh-boot-sequence — 启动层样式
+ *
+ * 只做三件事：铺满视口、阶段层交叉淡化、黑场收尾。
+ * 所有动画只动 opacity / transform，避免每帧重排。
+ * 不带任何外部图片：默认底由 CSS 渐变 + 内联 SVG 噪点生成。
+ */
+
+#dsh-boot-sequence {
+  --seq-fade: 600ms;
+  --seq-bg: #05070a;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  overflow: hidden;
+  background: var(--seq-bg);
+  color: #f2f5f8;
+  opacity: 1;
+  transition: opacity var(--seq-reveal, 900ms) ease;
+  pointer-events: auto;
+  contain: strict;
+}
+
+#dsh-boot-sequence.seq-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 每一段：视频 / 图片 / 空白底 */
+#dsh-boot-sequence .seq-phase {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--seq-fade) ease;
+  will-change: opacity;
+  background: #000;
+}
+
+#dsh-boot-sequence .seq-phase.seq-on {
+  opacity: 1;
+}
+
+#dsh-boot-sequence .seq-phase img,
+#dsh-boot-sequence .seq-phase video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 0;
+}
+
+#dsh-boot-sequence .seq-phase[data-fit="contain"] img,
+#dsh-boot-sequence .seq-phase[data-fit="contain"] video {
+  object-fit: contain;
+}
+
+/* 空白段：用 CSS 生成一张不会冒犯任何人的抽象底 */
+#dsh-boot-sequence .seq-blank {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(60% 55% at 50% 42%, rgba(90, 150, 255, 0.20), rgba(5, 7, 10, 0) 70%),
+    radial-gradient(45% 40% at 68% 70%, rgba(255, 120, 80, 0.12), rgba(5, 7, 10, 0) 70%),
+    linear-gradient(160deg, #070a0f 0%, #0b1118 55%, #05070a 100%);
+  animation: seq-breathe 6s ease-in-out infinite alternate;
+}
+
+#dsh-boot-sequence .seq-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");
+  background-size: 180px 180px;
+  pointer-events: none;
+}
+
+#dsh-boot-sequence .seq-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 100% at 50% 45%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* 结束时的黑场：先落到纯黑，再让整层退场 */
+#dsh-boot-sequence .seq-black {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity var(--seq-blackout, 450ms) ease;
+  pointer-events: none;
+}
+
+#dsh-boot-sequence .seq-black.seq-on {
+  opacity: 1;
+}
+
+/* 可选品牌行（默认关闭，由配置 brand.show 决定是否渲染） */
+#dsh-boot-sequence .seq-brand {
+  position: absolute;
+  left: 28px;
+  bottom: 24px;
+  font: 500 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242, 245, 248, 0.72);
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+
+#dsh-boot-sequence .seq-brand.seq-on {
+  opacity: 1;
+}
+
+/* 跳过提示（可选） */
+#dsh-boot-sequence .seq-hint {
+  position: absolute;
+  right: 24px;
+  bottom: 22px;
+  font: 400 11px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: rgba(242, 245, 248, 0.42);
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+
+#dsh-boot-sequence .seq-hint.seq-on {
+  opacity: 1;
+}
+
+@keyframes seq-breathe {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.06); }
+}
+
+/* 尊重系统设置：去掉一切动画与过渡 */
+@media (prefers-reduced-motion: reduce) {
+  #dsh-boot-sequence,
+  #dsh-boot-sequence .seq-phase,
+  #dsh-boot-sequence .seq-black,
+  #dsh-boot-sequence .seq-brand,
+  #dsh-boot-sequence .seq-hint {
+    transition-duration: 0ms !important;
+  }
+  #dsh-boot-sequence .seq-blank {
+    animation: none !important;
+  }
+}

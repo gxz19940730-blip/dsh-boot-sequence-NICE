@@ -1,0 +1,45 @@
+{
+  "name": "dsh-boot-sequence",
+  "version": "0.1.0",
+  "description": "A configurable boot sequence for DeepSeek Harness: play your own video/image phases full-screen before the app UI, then reveal the app. Ships no third-party artwork.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./build": "./lib/build.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "node tools/selftest.mjs",
+    "preview": "node tools/preview.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "lib",
+    "tools",
+    "examples",
+    "screenshots",
+    "boot.config.json",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "boot",
+    "splash",
+    "intro"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

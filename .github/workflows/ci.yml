@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['20', '22']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: self-test
+        run: node tools/selftest.mjs
+      - name: compose smoke test
+        run: |
+          node --input-type=module -e "
+            import { loadConfig, buildScreen } from './lib/build.js';
+            const cfg = loadConfig();
+            const src = buildScreen(cfg);
+            if (!src.includes('__DSH_BOOT_SEQUENCE__')) throw new Error('guard missing');
+            if (src.length < 4000) throw new Error('screen too small: ' + src.length);
+            new Function(src);
+            console.log('screen bytes', src.length, '| phases', cfg.phases.map(p => p.type).join(','));
+          "

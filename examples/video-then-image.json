@@ -1,0 +1,12 @@
+{
+  "fadeMs": 600,
+  "minShowMs": 1200,
+  "oncePerSession": false,
+  "phases": [
+    { "type": "video", "src": "intro.mp4", "fit": "cover", "duration": 12000 },
+    { "type": "image", "src": "keyart.jpg", "fit": "cover", "duration": 1800 },
+    { "type": "blank", "duration": 500 }
+  ],
+  "ending": { "blackoutMs": 450, "holdMs": 250, "revealMs": 900 },
+  "hint": "点击或按 Esc 跳过"
+}

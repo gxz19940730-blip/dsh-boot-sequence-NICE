@@ -1,0 +1,57 @@
+name: Bug report
+description: Something is wrong with the boot sequence
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please include enough detail to reproduce it.
+  - type: input
+    id: version
+    attributes:
+      label: dsh-boot-sequence version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: dsh
+    attributes:
+      label: DSH version / surface
+      description: Desktop app version, or `dsh web` version, plus OS
+      placeholder: "desktop 0.2.x / Windows 11"
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: boot.config.json (redact paths if needed)
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+      description: White flash, black screen, UI first, video not playing, leftover overlay, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: health
+    attributes:
+      label: Output of /dsh-boot-sequence/health
+      render: json
+    validations:
+      required: false
+  - type: textarea
+    id: console
+    attributes:
+      label: Browser/desktop console errors
+      render: shell
+    validations:
+      required: false

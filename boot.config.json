@@ -1,0 +1,28 @@
+{
+  "mediaBase": "/dsh-boot-sequence/media",
+  "fadeMs": 600,
+  "minShowMs": 1200,
+  "oncePerSession": false,
+  "skip": {
+    "click": true,
+    "keys": [
+      "Escape",
+      " ",
+      "Enter"
+    ]
+  },
+  "ending": {
+    "blackoutMs": 450,
+    "holdMs": 250,
+    "revealMs": 900
+  },
+  "phases": [
+    {
+      "type": "video",
+      "src": "intro.mp4",
+      "fit": "cover",
+      "duration": 12000
+    }
+  ],
+  "hint": "点击或按 Esc 跳过"
+}
