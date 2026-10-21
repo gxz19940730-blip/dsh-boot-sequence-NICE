@@ -1,5 +1,9 @@
 # dsh-boot-sequence-nice
 
+[中文](README.md) | [English](README.en.md)
+
+[![ci](https://github.com/gxz19940730-blip/dsh-boot-sequence-NICE/actions/workflows/ci.yml/badge.svg)](https://github.com/gxz19940730-blip/dsh-boot-sequence-NICE/actions/workflows/ci.yml)
+
 A configurable **boot sequence** for DeepSeek Harness (DSH): a full-screen layer that plays before the app UI — video and image phases in the order you choose — then fades to black and lets the app light up.
 
 - Host-only: no client-side entries
