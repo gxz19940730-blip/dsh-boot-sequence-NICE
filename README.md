@@ -1,4 +1,4 @@
-# dsh-boot-sequence
+# dsh-boot-sequence-nice
 
 [中文](README.md) | [English](README.en.md)
 
@@ -26,7 +26,7 @@ dsh plugin --profile <name> add file:<本仓库绝对路径>
 
 ```json
 {
-  "mediaBase": "/dsh-boot-sequence/media",
+  "mediaBase": "/dsh-boot-sequence-nice/media",
   "fadeMs": 600,
   "minShowMs": 1200,
   "oncePerSession": false,
@@ -69,7 +69,7 @@ media/
 ```
 
 - 支持 `mp4/webm/mov`、`jpg/png/webp/avif/gif`
-- 由 `/dsh-boot-sequence/media/<name>` 提供，**支持 HTTP Range**（视频可拖动、可流式播放）
+- 由 `/dsh-boot-sequence-nice/media/<name>` 提供，**支持 HTTP Range**（视频可拖动、可流式播放）
 - 查找顺序：插件的 `media/` → `~/.dsh/boot-sequence-media/`（推荐放这里，重装插件不会丢）
 - 路径做了目录逃逸校验，只能读这两个目录下的文件
 - 视频建议 `-movflags +faststart`，让 moov 在文件头，首帧更快
@@ -77,8 +77,8 @@ media/
 ## 诊断
 
 ```
-GET /dsh-boot-sequence/health
-→ {"ok":true,"plugin":"dsh-boot-sequence","version":"0.1.0","phases":["video","image"],"screenBytes":...}
+GET /dsh-boot-sequence-nice/health
+→ {"ok":true,"plugin":"dsh-boot-sequence-nice","version":"0.1.0","phases":["video","image"],"screenBytes":...}
 ```
 
 ## 自检 / 预览

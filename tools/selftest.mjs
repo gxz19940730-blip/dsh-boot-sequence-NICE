@@ -77,13 +77,13 @@ function runMedia(url, headers = {}) {
   })
 }
 
-const full = await runMedia('/dsh-boot-sequence/media/__selftest__.mp4')
+const full = await runMedia('/dsh-boot-sequence-nice/media/__selftest__.mp4')
 check('media 200', full.status === 200 && full.body === '0123456789', `${full.status} ${full.headers['content-type']}`)
 
-const ranged = await runMedia('/dsh-boot-sequence/media/__selftest__.mp4', { range: 'bytes=2-5' })
+const ranged = await runMedia('/dsh-boot-sequence-nice/media/__selftest__.mp4', { range: 'bytes=2-5' })
 check('media 206', ranged.status === 206 && ranged.body === '2345' && ranged.headers['content-range'] === 'bytes 2-5/10', `${ranged.status} ${ranged.headers['content-range']}`)
 
-const traversal = await runMedia('/dsh-boot-sequence/media/../package.json')
+const traversal = await runMedia('/dsh-boot-sequence-nice/media/../package.json')
 check('media traversal blocked', traversal.status === 404, String(traversal.status))
 
 rmSync(tmpFile, { force: true })

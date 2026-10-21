@@ -1,4 +1,4 @@
-# dsh-boot-sequence bundle patch
+# dsh-boot-sequence-nice bundle patch
 #
 # 这个插件只有宿主半边：订阅 webserver/index-inject，把启动序列的
 # 样式 + 运行时 + 配置合成一个 <script> 注入 <head>，在应用 UI 之前铺满全屏。
@@ -6,4 +6,4 @@
 # 它不注册客户端条目，所以 profile 里只需要这一行。
 - insert:
     - id: boot-sequence
-      name: dsh-boot-sequence
+      name: dsh-boot-sequence-nice

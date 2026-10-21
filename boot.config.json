@@ -1,5 +1,5 @@
 {
-  "mediaBase": "/dsh-boot-sequence/media",
+  "mediaBase": "/dsh-boot-sequence-nice/media",
   "fadeMs": 600,
   "minShowMs": 1200,
   "oncePerSession": false,

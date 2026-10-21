@@ -10,7 +10,7 @@ Please do not file a public issue for a vulnerability.
 The plugin runs in the host process and registers one HTTP route:
 
 ```
-GET|HEAD /dsh-boot-sequence/media/<path>
+GET|HEAD /dsh-boot-sequence-nice/media/<path>
 ```
 
 The path is decoded, resolved, and **must stay inside** one of two directories:

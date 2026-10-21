@@ -1,5 +1,5 @@
 {
-  "name": "dsh-boot-sequence",
+  "name": "dsh-boot-sequence-nice",
   "version": "0.1.0",
   "description": "A configurable boot sequence for DeepSeek Harness: play your own video/image phases full-screen before the app UI, then reveal the app. Ships no third-party artwork.",
   "type": "module",

@@ -1,4 +1,4 @@
-# dsh-boot-sequence
+# dsh-boot-sequence-nice
 
 A configurable **boot sequence** for DeepSeek Harness (DSH): a full-screen layer that plays before the app UI — video and image phases in the order you choose — then fades to black and lets the app light up.
 
@@ -22,7 +22,7 @@ Edit `boot.config.json` in the package root and refresh the page — no restart 
 
 ```json
 {
-  "mediaBase": "/dsh-boot-sequence/media",
+  "mediaBase": "/dsh-boot-sequence-nice/media",
   "fadeMs": 600,
   "minShowMs": 1200,
   "oncePerSession": false,
@@ -65,7 +65,7 @@ media/
 ```
 
 - Supports `mp4/webm/mov`, `jpg/png/webp/avif/gif`
-- Served at `/dsh-boot-sequence/media/<name>` with **HTTP Range** support
+- Served at `/dsh-boot-sequence-nice/media/<name>` with **HTTP Range** support
 - Lookup order: the package `media/` first, then `~/.dsh/boot-sequence-media/` (recommended — survives reinstalls)
 - Path traversal is rejected; only those two directories are readable
 - For video, use `-movflags +faststart` so the first frame arrives sooner
@@ -73,8 +73,8 @@ media/
 ## Diagnostics
 
 ```
-GET /dsh-boot-sequence/health
-→ {"ok":true,"plugin":"dsh-boot-sequence","version":"0.1.0","phases":["video","image"],"screenBytes":...}
+GET /dsh-boot-sequence-nice/health
+→ {"ok":true,"plugin":"dsh-boot-sequence-nice","version":"0.1.0","phases":["video","image"],"screenBytes":...}
 ```
 
 ## Self-test / preview

@@ -9,7 +9,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: dsh-boot-sequence version
+      label: dsh-boot-sequence-nice version
       placeholder: "0.1.0"
     validations:
       required: true
@@ -44,7 +44,7 @@ body:
   - type: textarea
     id: health
     attributes:
-      label: Output of /dsh-boot-sequence/health
+      label: Output of /dsh-boot-sequence-nice/health
       render: json
     validations:
       required: false
