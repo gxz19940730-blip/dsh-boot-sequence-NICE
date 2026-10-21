@@ -16,11 +16,26 @@
 
 ## 安装
 
-```bash
-dsh plugin --profile <name> add file:<本仓库绝对路径>
-```
+从 GitHub 安装（推荐，不需要 npm 账号）：
 
-或在桌面端「设置 → 插件」里输入包名/本地路径。
+`ash
+# 跟随最新提交
+dsh plugin --profile desktop add github:gxz19940730-blip/dsh-boot-sequence-NICE
+
+# 或锁定版本
+dsh plugin --profile desktop add github:gxz19940730-blip/dsh-boot-sequence-NICE#v0.1.0
+`
+
+本地开发：
+
+`ash
+dsh plugin --profile desktop add file:<本仓库绝对路径>
+`
+
+> 国内网络直连 GitHub 常常失败。装之前先给 git 配代理，例如：
+> git config --global http.https://github.com/.proxy http://127.0.0.1:7890
+
+npm 版本（可选，发布后可用）：dsh plugin --profile desktop add dsh-boot-sequence-nice
 
 ## 配置
 

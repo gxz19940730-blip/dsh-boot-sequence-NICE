@@ -14,11 +14,26 @@ A configurable **boot sequence** for DeepSeek Harness (DSH): a full-screen layer
 
 ## Install
 
-```bash
-dsh plugin --profile <name> add file:<absolute path to this repo>
-```
+From GitHub (recommended — no npm account needed):
 
-Or use the desktop app: Settings → Plugins → enter the package name/path.
+`ash
+# follow the default branch
+dsh plugin --profile desktop add github:gxz19940730-blip/dsh-boot-sequence-NICE
+
+# or pin a tag
+dsh plugin --profile desktop add github:gxz19940730-blip/dsh-boot-sequence-NICE#v0.1.0
+`
+
+Local development:
+
+`ash
+dsh plugin --profile desktop add file:<absolute path to this repo>
+`
+
+> Direct GitHub access is unreliable in some networks. Configure a git proxy first, e.g.
+> git config --global http.https://github.com/.proxy http://127.0.0.1:7890
+
+npm (optional, once published): dsh plugin --profile desktop add dsh-boot-sequence-nice
 
 ## Configuration
 
