@@ -2,6 +2,8 @@
 
 [中文](README.md) | [English](README.en.md)
 
+[![ci](https://github.com/gxz19940730-blip/dsh-boot-sequence-NICE/actions/workflows/ci.yml/badge.svg)](https://github.com/gxz19940730-blip/dsh-boot-sequence-NICE/actions/workflows/ci.yml)
+
 给 DeepSeek Harness（DSH）的**可配置启动序列**：在应用 UI 之前铺一层全屏画面，按你配置的顺序播放视频/图片，最后黑场收尾、让界面缓缓亮起。
 
 ![默认抽象底](screenshots/backdrop.jpg)
